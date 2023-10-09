@@ -39,6 +39,8 @@ If the DID Method defines feature names in their spec, you can specify the metho
 
 Each feature is expressed as a string. The meaning of the feature strings is specified in the DID method.
 
+Mulitple listed features function as an OR, indicating that DIDs matching any of the included features are supported.
+
 Omitting the features list indicates that you support all features of the method.
 
 
@@ -70,7 +72,6 @@ When a method name is insufficient and the DID method does not define features, 
 
 You can include mutiple prefix entries in the same list for the same DID method.
 
-
 ## Combined Example
 
 The following example shows common use of the DID Method Support statements in a list
@@ -95,3 +96,30 @@ The following example shows common use of the DID Method Support statements in a
   ]
 }
 ```
+
+
+## DID Method Feature Definition
+
+DID Methods may define feature names within their documentation. If they do, they can be used to specify features not easiliy expressed via a prefix match.
+
+The only requirement of feature name definition is that it precisely defines how to interpret the feature names supported by the DID Method. There are two common forms for this: a list of defined feature names, or interpretation instructions. Examples of both of these possibilities are shown below.
+
+### Defined List of Feature Names Example
+
+This DID Method defines two feature names, which must be named:
+
+`FeatureA`:
+DIDs within this method that do 1, 2, and 3 are included in this feature.
+
+`FeatureB`:
+DIDs within this method that do 4, 5, and 6 are included in this feature.
+
+
+### Interpretation Instructions Example
+
+The features for this DID Method follow one of the following forms: `<part1>:<part2>` or `<part>`. Part 2 is optional, and defaults to 'all' during evaluation. If Part 2 is not present, the delimiting `:` will also not be present.
+
+The value for Part 1 indicates that DIDs must...
+
+The value for Part 2 indicates that DIDs must...
+
